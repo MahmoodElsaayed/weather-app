@@ -16,7 +16,7 @@ async function fetchWeather(location, unit = 'metric') {
 
 function filterWeatherJson(responseJson) {
     return {
-        address: responseJson.address,
+        address: responseJson.resolvedAddress,
         forecast: responseJson.days.map((day) => ({
             conditions: day.conditions,
             date: convertDatetimeToHumanDate(day.datetime),
