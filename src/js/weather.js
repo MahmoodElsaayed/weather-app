@@ -14,10 +14,10 @@ async function fetchWeather(location, unit = 'metric') {
     }
 }
 
-function filterWeatherJson(responseJson) {
+function filterWeatherResponse(response) {
     return {
-        address: responseJson.resolvedAddress,
-        forecast: responseJson.days.map((day) => ({
+        address: response.resolvedAddress,
+        forecast: response.days.map((day) => ({
             conditions: day.conditions,
             date: convertDatetimeToHumanDate(day.datetime),
             humidity: day.humidity,
@@ -28,4 +28,4 @@ function filterWeatherJson(responseJson) {
     }
 }
 
-export { fetchWeather, filterWeatherJson }
+export { fetchWeather, filterWeatherResponse }
