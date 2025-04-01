@@ -135,3 +135,23 @@ button {
         clip-path: inset(0 -1ch 0 0);
     }
 }
+
+.error-page {
+}
+
+.error-container {
+    position: relative;
+}
+
+.error-container img {
+    position: absolute;
+    left: -100px;
+    top: -11px;
+    width: 100px;
+    height: 100px;
+}
+
+.error-container .error-msg {
+    font-size: 4rem;
+    font-weight: 600;
+}

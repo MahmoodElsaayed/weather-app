@@ -12,7 +12,12 @@
     </head>
 
     <body>
-        <div class="search-page container hidden" id="searchContainer">
+        <!-- TODO: switch this to visible after developing all 4 containers -->
+        <div
+            class="search-page container hidden"
+            aria-hidden="true"
+            id="searchPage"
+        >
             <p>Where to?</p>
             <form class="search-form" novalidate>
                 <input
@@ -24,8 +29,26 @@
                 <button type="submit">→</button>
             </form>
         </div>
-        <div class="loading-page container visible" id="loadingPage">
+        <div
+            class="loading-page container hidden"
+            aria-hidden="true"
+            id="loadingPage"
+        >
             <div class="loader"></div>
+        </div>
+        <div
+            class="error-page container hidden"
+            aria-hidden="true"
+            id="errorPage"
+        >
+            <div class="error-container">
+                <img
+                    src="https://img.icons8.com/keek/100/error.png"
+                    alt="error"
+                />
+                <p class="error-msg">Something went wrong...</p>
+                <p class="error-code" id="errorCode">[status code]</p>
+            </div>
         </div>
     </body>
 </html>
