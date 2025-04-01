@@ -6,11 +6,16 @@ async function fetchWeather(location, unit = 'metric') {
     try {
         const response = await fetch(url)
         if (!response.ok) {
-            throw new Error(`HTTP error ${response.status}`)
+            const error = new Error(`Error ${response.status}`)
+            error.statusCode = response.status
+            throw error
         }
-        return response.json()
+        return {
+            statusCode: response.status,
+            data: response.json(),
+        }
     } catch (error) {
-        console.error(error)
+        return error
     }
 }
 
