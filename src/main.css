@@ -5,13 +5,22 @@
 }
 
 @font-face {
-    font-family: '';
-    src: url('') format('');
+    font-family: 'Montserrat';
+    src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf')
+        format('truetype');
 }
 
 :root {
-    --primary-fonts: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --primary-fonts: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+        sans-serif;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+:root {
+    /*later will be :root.dark*/
+    color: var(--white);
 }
 
 html {
@@ -21,5 +30,32 @@ html {
 body {
     min-height: 100vh;
     font: normal 1.6rem var(--primary-fonts);
-    background: url('') no-repeat center center / cover fixed;
+    background-color: #333c4c;
+    background: linear-gradient(to top right, #2a3b4c, #1a2635);
+}
+
+.container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition:
+        opacity 0.5s ease-in-out,
+        visibility 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
 }
