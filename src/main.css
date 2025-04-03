@@ -74,9 +74,7 @@ button {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    transition:
-        opacity 0.5s ease-in-out,
-        visibility 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .hidden {
