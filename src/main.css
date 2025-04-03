@@ -37,7 +37,6 @@ body {
     font: normal 1.6rem var(--primary-fonts);
     background-color: #333c4c;
     color: var(--main-text-clr);
-    background: var(--bg-gradient);
 }
 
 button {
@@ -75,6 +74,7 @@ button {
     justify-content: center;
     font-size: 2rem;
     transition: opacity 0.5s ease-in-out;
+    background: var(--bg-gradient);
 }
 
 .hidden {
@@ -176,7 +176,7 @@ button {
     height: auto;
 }
 
-.weather-display-page .current-weather {
+.current-weather {
     position: relative;
     margin-right: -25px;
     z-index: 99999;
@@ -226,7 +226,7 @@ button {
     width: 90px;
 }
 
-.weather-display-page .weather-details {
+.weather-details {
     display: grid;
     align-content: space-between;
     padding: 43px 60px 50px 85px;
@@ -241,7 +241,7 @@ button {
 
 .weekly-forecast {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     align-items: center;
     justify-items: center;
     gap: 1px;
@@ -311,4 +311,105 @@ button {
 
 .weather-details .search-form input {
     width: 100%;
+}
+
+@media screen and (max-width: 65em) {
+    .font-l {
+        font-size: 2rem;
+    }
+
+    .font-xl {
+        font-size: 3rem;
+    }
+
+    .toggle-form-btn {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .error-container {
+        padding-left: 15px;
+    }
+
+    .error-container img {
+        left: 2px;
+        top: -90px;
+    }
+
+    .weekly-forecast {
+        width: 85%;
+        margin: auto;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .forecast-card {
+        height: 125px;
+    }
+
+    .forecast-card img {
+        width: 40px;
+    }
+
+    .weather-summary {
+        top: 48px;
+        right: 30px;
+    }
+
+    .weather-summary img {
+        width: 0;
+        position: absolute;
+    }
+
+    .toggle-form-btn img {
+        width: 28px;
+    }
+
+    .weather-display-page {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+
+    .weather-display-page :is(.current-weather, .weather-details) {
+        width: 100%;
+        border-radius: 0;
+        height: auto;
+        gap: 60px;
+    }
+
+    .weather-details {
+        padding: 50px 30px;
+    }
+
+    .weather-display-page .current-weather {
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width: 26em) {
+    .search-form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .search-form input {
+        width: 95%;
+        font-size: 1.6rem;
+        margin: auto;
+    }
+
+    .search-form button[type='submit'] {
+        right: 14px;
+    }
+
+    .font-l {
+        font-size: 1.9rem;
+    }
+
+    .font-xl {
+        font-size: 2.5rem;
+    }
 }
