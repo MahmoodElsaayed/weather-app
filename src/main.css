@@ -19,8 +19,13 @@
 /*later will be :root.dark theme*/
 :root {
     --main-text-clr: #ffffff;
+    --inverted-text-clr: #000000;
     --sub-text-clr-1: #5c7a84;
+    --weather-details-bgClr: #222831;
+    --forecast-card-bgClr: #272e37;
     --bg-gradient: linear-gradient(to top right, #2a3b4c, #1a2635);
+    --svg-filter: invert(100%) sepia(94%) saturate(25%) hue-rotate(101deg)
+        brightness(108%) contrast(106%);
 }
 
 html {
@@ -41,8 +46,8 @@ button {
 
 .container {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     top: 0;
     left: 0;
     display: flex;
@@ -118,7 +123,6 @@ button {
     color: var(--main-text-clr);
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
     width: fit-content;
     font-weight: 600;
@@ -127,16 +131,15 @@ button {
     clip-path: inset(0 3ch 0 0);
     animation: l4 1s steps(4) infinite;
 }
+
 .loader:before {
     content: 'Loading...';
 }
+
 @keyframes l4 {
     to {
         clip-path: inset(0 -1ch 0 0);
     }
-}
-
-.error-page {
 }
 
 .error-container {
@@ -154,4 +157,152 @@ button {
 .error-container .error-msg {
     font-size: 4rem;
     font-weight: 600;
+}
+
+.weather-display-page > div {
+    border-radius: 30px;
+    height: 625px;
+    width: 600px;
+}
+
+.weather-display-page img {
+    filter: var(--svg-filter); /* sets the color of the SVGs */
+    height: auto;
+}
+
+.weather-display-page .current-weather {
+    position: relative;
+    margin-right: -25px;
+    z-index: 99999;
+    height: 680px;
+    width: 500px;
+    background: url('./assets/images/temp-asset-remove-after-testing.jpg')
+        no-repeat center center / cover;
+}
+
+.weather-info.overlay {
+    width: 100%;
+    height: 100%;
+    padding: 50px 30px;
+    border-radius: inherit;
+    background-image: linear-gradient(
+        to top left,
+        rgba(52, 67, 202, 0.65),
+        rgba(64, 191, 207, 0.65)
+    );
+}
+
+.date-info .calendar-date {
+    margin-top: 10px;
+}
+
+.location-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 15px 0 0 -5px;
+}
+
+.location-info img {
+    width: 28px;
+}
+
+.weather-summary {
+    position: absolute;
+    bottom: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+.weather-summary img {
+    width: 90px;
+}
+
+.weather-display-page .weather-details {
+    display: grid;
+    align-content: space-between;
+    padding: 43px 60px 50px 85px;
+    background-color: var(--weather-details-bgClr);
+}
+
+.weather-stat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.weekly-forecast {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    align-items: center;
+    justify-items: center;
+    gap: 1px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.weekly-forecast .forecast-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    background-color: var(--forecast-card-bgClr);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.forecast-card.day-1 {
+    background-color: var(--main-text-clr);
+    color: var(--inverted-text-clr);
+    border-radius: 10px;
+}
+
+.forecast-card.day-1 img {
+    filter: none;
+}
+
+.forecast-card img {
+    width: 46px;
+}
+
+.toggle-form-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(
+        to left,
+        rgba(52, 67, 202, 1),
+        rgba(64, 191, 207, 1)
+    );
+    border: none;
+    border-radius: 7px;
+    color: inherit;
+    font-size: 2rem;
+    transition: scale 0.3s ease-in-out;
+}
+
+.toggle-form-btn:active {
+    scale: 0.99;
+}
+
+.toggle-form-btn img {
+    width: 35px;
+}
+
+.location-search {
+    position: relative;
+}
+
+.location-search .search-form {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.weather-details .search-form input {
+    width: 100%;
 }
