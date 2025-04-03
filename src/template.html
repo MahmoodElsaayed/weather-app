@@ -14,11 +14,11 @@
     <body>
         <!-- TODO: switch this to visible after developing all 4 containers -->
         <div
-            class="search-page container hidden"
-            aria-hidden="true"
+            class="search-page container visible"
+            aria-hidden="false"
             id="searchPage"
         >
-            <p>Where to?</p>
+            <p class="font-xl font-sbold">Where to?</p>
             <form class="search-form" novalidate>
                 <input
                     type="text"
@@ -34,7 +34,7 @@
             aria-hidden="true"
             id="loadingPage"
         >
-            <div class="loader"></div>
+            <div class="loader font-sbold font-xl"></div>
         </div>
         <div
             class="error-page container hidden"
@@ -46,7 +46,9 @@
                     src="https://img.icons8.com/keek/100/error.png"
                     alt="error"
                 />
-                <p class="error-msg">Something went wrong...</p>
+                <p class="error-msg font-xl font-bold">
+                    Something went wrong...
+                </p>
                 <p class="error-code" id="errorCode">[status code]</p>
             </div>
         </div>
@@ -58,7 +60,7 @@
             <div class="current-weather">
                 <div class="weather-info overlay">
                     <div class="date-info">
-                        <p class="week-day">Tuesday</p>
+                        <p class="week-day font-l font-bold">Tuesday</p>
                         <p class="calendar-date">20 Jun 2022</p>
                     </div>
                     <div class="location-info">
@@ -66,60 +68,60 @@
                             src="./assets/images/location.svg"
                             alt="location icon"
                         />
-                        <p>Biarritz, FR</p>
+                        <p class="font-bold">Biarritz, FR</p>
                     </div>
                     <div class="weather-summary">
                         <img
                             src="./assets/images/clear-day.svg"
                             alt="clear day icon"
                         />
-                        <p class="temperature">29 °C</p>
-                        <p class="condition">Sunny</p>
+                        <p class="temperature font-xbold font-xl">29 °C</p>
+                        <p class="condition font-xbold font-l">Sunny</p>
                     </div>
                 </div>
             </div>
             <div class="weather-details">
                 <div class="stats">
                     <div class="weather-stat percipitation">
-                        <p>PERCIPITATION</p>
-                        <p>0%</p>
+                        <p class="font-bold font-l">PERCIPITATION</p>
+                        <p class="value font-l">0%</p>
                     </div>
                     <div class="weather-stat humidity">
-                        <p>HUMIDITY</p>
-                        <p class="value">42%</p>
+                        <p class="font-bold font-l">HUMIDITY</p>
+                        <p class="value font-l">42%</p>
                     </div>
                     <div class="weather-stat wind">
-                        <p>WIND</p>
-                        <p class="value">3km/h</p>
+                        <p class="font-bold font-l">WIND</p>
+                        <p class="value font-l">3km/h</p>
                     </div>
                 </div>
                 <div class="weekly-forecast">
                     <div class="forecast-card day-1">
                         <img src="./assets/images/clear-day.svg" />
                         <div class="short-day">Tue</div>
-                        <div class="temperature">40 °C</div>
+                        <div class="temperature font-bold">40 °C</div>
                     </div>
                     <div class="forecast-card day-2">
                         <img src="./assets/images/clear-day.svg" />
                         <div class="short-day">Tue</div>
-                        <div class="temperature">40 °C</div>
+                        <div class="temperature font-bold">40 °C</div>
                     </div>
                     <div class="forecast-card day-3">
                         <img src="./assets/images/clear-day.svg" />
                         <div class="short-day">Tue</div>
-                        <div class="temperature">40 °C</div>
+                        <div class="temperature font-bold">40 °C</div>
                     </div>
                     <div class="forecast-card day-4">
                         <img src="./assets/images/clear-day.svg" />
                         <div class="short-day">Tue</div>
-                        <div class="temperature">40 °C</div>
+                        <div class="temperature font-bold">40 °C</div>
                     </div>
                 </div>
                 <div class="location-search">
                     <button
                         id="toggleFormButton"
                         aria-hidden="false"
-                        class="toggle-form-btn visible"
+                        class="toggle-form-btn font-bold"
                     >
                         <img
                             src="./assets/images/location.svg"

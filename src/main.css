@@ -44,6 +44,26 @@ button {
     cursor: pointer;
 }
 
+.font-l {
+    font-size: 2.8rem;
+}
+
+.font-xl {
+    font-size: 4.5rem;
+}
+
+.font-sbold {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 600;
+}
+
+.font-xbold {
+    font-weight: 700;
+}
+
 .container {
     position: absolute;
     width: 100%;
@@ -73,11 +93,6 @@ button {
 .search-page {
     flex-direction: column;
     gap: 70px;
-}
-
-.search-page p {
-    font-size: 4rem;
-    font-weight: 600;
 }
 
 .search-form {
@@ -125,9 +140,7 @@ button {
 
 .loader {
     width: fit-content;
-    font-weight: 600;
     font-family: monospace;
-    font-size: 3rem;
     clip-path: inset(0 3ch 0 0);
     animation: l4 1s steps(4) infinite;
 }
@@ -149,14 +162,9 @@ button {
 .error-container img {
     position: absolute;
     left: -100px;
-    top: -11px;
+    top: -5px;
     width: 100px;
     height: 100px;
-}
-
-.error-container .error-msg {
-    font-size: 4rem;
-    font-weight: 600;
 }
 
 .weather-display-page > div {
