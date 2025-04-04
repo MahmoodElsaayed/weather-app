@@ -32,7 +32,7 @@ export default function ScreenController(api) {
         if (!formData) {
             return
         }
-        const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formData.searchQuery}/next7days?unitGroup=metric&include=days&key=FXNJH5S5MNRED8WVD9PU8CDNZ&contentType=json`
+        const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formData.searchQuery}/next7days?unitGroup=metric&iconSet=icons1&include=days&key=FXNJH5S5MNRED8WVD9PU8CDNZ&contentType=json`
         const unsplashApiUrl = `https://api.unsplash.com/search/photos?query=${formData.searchQuery}&client_id=4QVqRtwrb2e1T_Nnqm6cFy9if0lQ64SCb6DZd0BYo6U`
         showPage('loadingPage')
         const weatherResponse = await api.fetchResponse(weatherApiUrl)

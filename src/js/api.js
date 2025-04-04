@@ -27,7 +27,8 @@ export default function API() {
                 humidity: day.humidity,
                 wind: day.windspeed,
                 precipitation: day.precip,
-                temperature: day.temp,
+                temperature: Math.floor(day.temp),
+                icon: day.icon,
             })),
         }
     }
