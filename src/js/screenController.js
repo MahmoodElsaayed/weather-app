@@ -106,7 +106,7 @@ export default function ScreenController(api) {
         document.querySelector('.weather-summary .condition').textContent =
             `${filteredWeatherData.forecast[0].conditions}`
 
-        if (filteredImageData) {
+        if (filteredImageData.src) {
             document.querySelector('.current-weather').style.backgroundImage =
                 `url(${filteredImageData.src})`
         }
