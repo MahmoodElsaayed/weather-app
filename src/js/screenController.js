@@ -47,7 +47,7 @@ export default function ScreenController(api) {
             const filteredImageData = api.filterImageResponse(
                 locationImageResponse
             )
-            // TODO: populateWeatherDisplay(filteredWeatherData, filteredImageData)
+            populateWeatherDisplay(filteredWeatherData, filteredImageData)
             showPage('weatherDisplayPage')
         } else if (weatherResponse.statusCode === 400) {
             displayFormError(
@@ -61,6 +61,54 @@ export default function ScreenController(api) {
                     ? `Status Code: ${weatherResponse.statusCode}`
                     : ''
             showPage('errorPage')
+        }
+    }
+
+    function populateWeatherDisplay(filteredWeatherData, filteredImageData) {
+        document.querySelector('.percipitation .value').textContent =
+            `${filteredWeatherData.forecast[0].precipitation}%`
+        document.querySelector('.humidity .value').textContent =
+            `${filteredWeatherData.forecast[0].humidity}%`
+        document.querySelector('.wind .value').textContent =
+            `${filteredWeatherData.forecast[0].wind}km/h`
+
+        document
+            .querySelectorAll('.forecast-card')
+            .forEach(async (card, index) => {
+                card.querySelector('img').src = (
+                    await import(
+                        `../assets/images/${filteredWeatherData.forecast[index].icon}.svg`
+                    )
+                ).default
+
+                card.querySelector('.temperature').textContent =
+                    `${filteredWeatherData.forecast[index].temperature}°C`
+            })
+
+        document.querySelector('.date-info .week-day').textContent =
+            `${filteredWeatherData.forecast[0].date[0]}`
+
+        document.querySelector('.date-info .calendar-date').textContent =
+            `${filteredWeatherData.forecast[0].date[1]}`
+
+        document.querySelector('.location-info p').textContent =
+            `${filteredWeatherData.address}`
+
+        import(
+            `../assets/images/${filteredWeatherData.forecast[0].icon}.svg`
+        ).then((value) => {
+            document.querySelector('.weather-summary img').src = value.default
+        })
+
+        document.querySelector('.weather-summary .temperature').textContent =
+            `${filteredWeatherData.forecast[0].temperature}°C`
+
+        document.querySelector('.weather-summary .condition').textContent =
+            `${filteredWeatherData.forecast[0].conditions}`
+
+        if (filteredImageData) {
+            document.querySelector('.current-weather').style.backgroundImage =
+                `url(${filteredImageData.src})`
         }
     }
 
