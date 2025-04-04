@@ -29,6 +29,7 @@ export default function ScreenController(api) {
             return
         }
         const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formData.searchQuery}/next7days?unitGroup=metric&include=days&key=FXNJH5S5MNRED8WVD9PU8CDNZ&contentType=json`
+        showPage('loadingPage')
         const weatherResponse = await api.fetchResponse(weatherApiUrl)
         // TODO: displayResponse(weatherResponse)
     }
