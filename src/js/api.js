@@ -10,7 +10,7 @@ export async function fetchResponse(url) {
         }
         return {
             statusCode: response.status,
-            data: response.json(),
+            data: await response.json(),
         }
     } catch (error) {
         return error
