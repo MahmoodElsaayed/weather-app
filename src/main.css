@@ -185,8 +185,8 @@ button {
     z-index: 99999;
     height: 680px;
     width: 500px;
-    background: url('./assets/images/temp-asset-remove-after-testing.jpg')
-        no-repeat center center / cover;
+    background: url('./assets/images/backup-wallpaper.jpg') no-repeat center
+        center / cover;
 }
 
 .weather-info.overlay {
@@ -364,9 +364,13 @@ button {
         width: 40px;
     }
 
+    .weather-info.overlay {
+        padding: 50px 15px;
+    }
+
     .weather-summary {
         top: 48px;
-        right: 30px;
+        right: 14px;
     }
 
     .weather-summary img {
@@ -402,6 +406,14 @@ button {
 }
 
 @media screen and (max-width: 26em) {
+    .weather-info .condition,
+    .weather-info .location-info p {
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .search-form {
         width: 100%;
         display: flex;
