@@ -91,16 +91,6 @@ button {
     position: relative;
 }
 
-.search-form input:user-invalid {
-    border-color: red;
-    color: #ff8787;
-}
-
-.search-form input:valid {
-    border-color: lightgreen;
-    color: #adff87;
-}
-
 .search-form .input-error-msg {
     position: absolute;
     bottom: -28px;
