@@ -30,3 +30,7 @@ export function filterWeatherResponse(response) {
         })),
     }
 }
+
+export function filterImageResponse(response) {
+    return { src: response.data.results[0].urls.full }
+}
