@@ -403,15 +403,20 @@ button {
     .weather-display-page .current-weather {
         height: fit-content;
     }
+
+    .weather-info .condition,
+    .weather-info .location-info p {
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 @media screen and (max-width: 26em) {
     .weather-info .condition,
     .weather-info .location-info p {
         max-width: 100px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .search-form {

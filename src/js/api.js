@@ -34,7 +34,7 @@ export default function API() {
     }
 
     function filterImageResponse(response) {
-        return { src: response?.data?.results?.[0]?.urls?.small || '' }
+        return { src: response?.data?.results?.[0]?.urls?.full || '' }
     }
 
     return { fetchResponse, filterWeatherResponse, filterImageResponse }
