@@ -15,9 +15,9 @@ export default function ScreenController() {
     function handleFormSubmission(event) {
         event.preventDefault()
         const inputField = event.target.firstChild
-        if (!inputField.validity.valid) {
-            console.log("FORM AIN'T VALID CUH")
-            // showError(event, 'This field musn\'nt be left empty') // the form has only 'required' constraint hence the hard-coded message. Customize as validation constraints grow.
+        if (inputField.value.length === 0) {
+            inputField.nextElementSibling.textContent =
+                "Can't submit empty fields"
             return
         }
         showPage('loadingPage')
