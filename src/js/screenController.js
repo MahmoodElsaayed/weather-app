@@ -1,4 +1,4 @@
-export default function ScreenController() {
+export default function ScreenController(api) {
     const locationForms = document.querySelectorAll('.search-form')
 
     function showPage(targetID) {
@@ -12,16 +12,25 @@ export default function ScreenController() {
         selectedPage.setAttribute('aria-hidden', 'false')
     }
 
-    function handleFormSubmission(event) {
+    function processForm(event) {
         event.preventDefault()
         const inputField = event.target.firstChild
         if (inputField.value.length === 0) {
             inputField.nextElementSibling.textContent =
                 "Can't submit empty fields"
+            return null
+        }
+        return { searchQuery: inputField.value, event }
+    }
+
+    async function handleFormSubmission(event) {
+        const formData = processForm(event)
+        if (!formData) {
             return
         }
-        showPage('loadingPage')
-        return { searchQuery: inputField.value, event }
+        const weatherApiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formData.searchQuery}/next7days?unitGroup=metric&include=days&key=FXNJH5S5MNRED8WVD9PU8CDNZ&contentType=json`
+        const weatherResponse = await api.fetchResponse(weatherApiUrl)
+        // TODO: displayResponse(weatherResponse)
     }
 
     locationForms.forEach((form) => {
@@ -30,5 +39,3 @@ export default function ScreenController() {
 
     return { showPage } // for testing only, remove later.
 }
-
-window.screenController = ScreenController()
