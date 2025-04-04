@@ -176,7 +176,7 @@ button {
     height: auto;
 }
 
-.current-weather {
+.weather-display-page .current-weather {
     position: relative;
     margin-right: -25px;
     z-index: 99999;
