@@ -83,11 +83,6 @@ button {
     pointer-events: none;
 }
 
-.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
 .search-page {
     flex-direction: column;
     gap: 70px;
@@ -324,6 +319,16 @@ button {
 
     .toggle-form-btn {
         font-size: 1.6rem;
+    }
+
+    .weather-display-page .current-weather,
+    .weather-display-page .weather-details {
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .weekly-forecast {
+        grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
     }
 }
 
