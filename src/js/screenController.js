@@ -20,6 +20,7 @@ export default function ScreenController(api) {
             displayFormError(inputField, "Can't submit an empty field")
             return
         }
+        displayFormError(inputField, '') // clear any error message
         document.activeElement.blur() // fixes an aria issue related to focusing on hidden element
         return { searchQuery: inputField.value, event }
     }
@@ -110,6 +111,12 @@ export default function ScreenController(api) {
         if (filteredImageData.src) {
             document.querySelector('.current-weather').style.backgroundImage =
                 `url(${filteredImageData.src})`
+        } else {
+            import('../assets/images/backup-wallpaper.jpg').then((result) => {
+                document.querySelector(
+                    '.current-weather'
+                ).style.backgroundImage = `url(${result.default})`
+            })
         }
     }
 
