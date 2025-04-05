@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[451],{451:(e,s,p)=>{e.exports=p.p+"assets/images/backup-wallpaper.ccff7f3b3bc8e3c62318.jpg"}}]);
