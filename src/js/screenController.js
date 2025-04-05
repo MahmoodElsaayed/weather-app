@@ -1,5 +1,6 @@
 export default function ScreenController(api) {
     const locationForms = document.querySelectorAll('.search-form')
+    const toggleFormButton = document.querySelector('#toggleFormButton')
 
     function showPage(targetID) {
         const pageContainers = document.querySelectorAll('.container')
@@ -114,6 +115,12 @@ export default function ScreenController(api) {
 
     locationForms.forEach((form) => {
         form.addEventListener('submit', handleFormSubmission)
+    })
+
+    toggleFormButton.addEventListener('click', (event) => {
+        const toggleFormButton = event.target.closest('#toggleFormButton')
+        toggleFormButton.classList.add('hidden')
+        toggleFormButton.nextElementSibling.classList.remove('hidden')
     })
 
     return { showPage } // for testing only, remove later.
